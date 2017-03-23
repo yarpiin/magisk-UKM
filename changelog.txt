@@ -1,0 +1,82 @@
+/
+P/oject name: UKM-unified
+
+12/03/17
+
+  * UKM: add latest version of Synapse (Slawek) [98c6e4c]
+  * UKM: Synapse flashed with UKM as default (Slawek) [1d2293e]
+  * Device.sh: Max Cpu add variable for 4 and 8 cores (Slawek) [268d7b3]
+  * Hotplug: Add Lazyplug (Slawek) [3af58f1]
+  * Hotplug: Autosmp add boost tunables (Slawek) [f682563]
+  * Advanced: add more wakelock controls (Slawek) [cecf8b0]
+  * gamma: bring back tunables from original gamma file (Slawek) [c61a00b]
+  * profile: remove rest of profile restoring (Slawek) [8b95586]
+  * cpuset: add paths for all cpus (Slawek) [1026aed]
+  * profiles: change to configs (Slawek) [e4e163f]
+  * restore backup: added paths from original ukm (Slawek) [7444843]
+  * device: correct cpu numbers (Slawek) [5ad3bcc]
+  * generate: add path for flars sound control (Slawek) [254b0bd]
+  * GPU: some devices have same path for gpu lets try it, also enabled adreno boost (Slawek) [ac0639d]
+  * misc: add Boeffla touchkey controll support (Slawek) [58b45f6]
+  * live cpu: make core 6 & 7 optional (Slawek) [916a0a0]
+  * cpu boost: add support for input boost driver by sultanxda (Slawek) [bb6bd66]
+  * gpu: more governors (Slawek) [acd15f6]
+  * gpu: governors for various devices (Slawek) [85ca057]
+
+02/03/2017 005
+
+  * more gpu support
+  * enabled sound tab for flars sound control
+  * added adrenoboost tunables
+  * cleaned it a bit 
+
+26/02/2017
+
+  * misc: add various versions of powersuspend (Slawek) [9ccb750]
+  * refresh: reduce refresh rate (Slawek) [cd6f73c]
+  * live: remove doubled gpu rfequency (Slawek) [7c7bc15]
+  * gpu: add more frequency scaling paths and merge kryo (Slawek) [e1b4106]
+  * actions: add missing adreno idler (Slawek) [f29df9b]
+  * gamma: add kcal on/off toggle (Slawek) [902f70c]
+  * info remove speedbin (Slawek) [67603ee]
+  * misc: rmove leds control (Slawek) [03ea904]
+  * cpufreq: corect paths for cpu frequencies (Slawek) [e499160]
+
+19/02/2017
+
+  * device: fix cpu temp status and remove Farenheits - we going to use Imperial only (Slawek) [b644623]
+  * restorebackup: use gamma values from ak kernel (Slawek) [0faa6e7]
+
+
+
+18/02/2017
+
+  * small update (Slawek) [15414fa]
+  * hotplug: alucard: list frequencies from cpu0 (Slawek) [17514bf]
+  * gamma: fix backlight dimmer (Slawek) [5ef2722]
+  * advanced: remove spacer (Slawek) [981de6c]
+  * gamma: add variable for emulated sd cards (Slawek) [ecdf513]
+  * kryo.io: add kryo action for io (Slawek) [9fde354]
+  * kryo I/O: correct paths for i/o sheduler (Slawek) [020c208]
+  * kryo2: correct toggle paths (Slawek) [dd273ff]
+  * kryo1: correct toggle paths (Slawek) [edb9390]
+  * cpu2: correct paths for tunables (Slawek) [98d26ac]
+  * cpu1: correct paths for tunables (Slawek) [4bb57a1]
+  * boost: universal cpu freq list (Slawek) [f0c227e]
+  * sound: add flars sound controls for WDC9335 (Slawek) [f3f9bfb]
+  * misc: add charge levels , remove version string from powersuspend, move fsync (Slawek) [eb3a0b5]
+  * mem: Dirty Expire and writeback Centisecs (Slawek) [98adb7b]
+  * I/O: add kryo variable (Slawek) [14baaa6]
+  * hotplug: organise and add support for hima and thunderplug (Slawek) [ec1113f]
+  * gpu: add finish quote and fix gpuset for kryo (Slawek) [c46e057]
+  * i am retarded (Slawek) [527a7a3]
+  * gpu: add gpuboost action, adreno530 gpu tunables and adreno boost (Slawek) [52be22f]
+  * gamma: add gamma from AK kernel icluding profiles (Slawek) [5b6e603]
+  * error: update version and UKM fix button from AK kernel (Slawek) [e70cf00]
+  * generate: conditionally create volt controll (Slawek) [fa4a76f]
+  * advanced: remove gentle fair sleepers & addvarious functions (Slawek) [16d0b8d]
+  * actions: live add missing functions (Slawek) [afcf369]
+  * Info: up to 3.8.2 Unified version (Slawek) [094586a]
+  * Cpu Boost splitted from cpu added basic support for little.big clusters (Slawek) [d743e14]
+  * device: Add most common cpu configurations  rename device to unified (Slawek) [0b60d07]
+

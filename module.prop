@@ -1,7 +1,9 @@
-id=template
-name=Template Module
-version=v1
-versionCode=1
-author=topjohnwu
-description=A short description
-template=3
+id=ukm
+name=Universal Kernel Manager
+version=unified-006
+versionCode=006
+author=yarpiin
+description=UNIFIED version of UKM by yarpiin, which should work on any device from the box, Magisk module by laggardkernel
+support=https://forum.xda-developers.com/android/software/zip-ukm-reborn-unified-t3558888
+donate=https://forum.xda-developers.com/donatetome.php?u=5288056
+cacheModule=false

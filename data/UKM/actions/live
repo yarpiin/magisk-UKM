@@ -1,0 +1,147 @@
+UKM=/data/UKM;
+BB=$UKM/busybox;
+DEVICE=`sh $UKM/device/.device.sh`;
+
+case $1 in
+	BatteryTemperature)
+		$BB echo `sh $DEVICE LiveBatteryTemperature`;
+	;;
+	Bootloader)
+		$BB echo `sh $DEVICE LiveBootloader`;
+	;;
+	CPUFrequency)
+		$BB echo `sh $DEVICE LiveCPUFrequency`;
+	;;
+	CPU1Frequency)
+		$BB echo `sh $DEVICE LiveCPU1Frequency`;
+	;;
+	CPU2Frequency)
+		$BB echo `sh $DEVICE LiveCPU2Frequency`;
+	;;
+	KRYO1Frequency)
+		$BB echo `sh $DEVICE LiveKRYO1Frequency`;
+	;;
+	KRYO2Frequency)
+		$BB echo `sh $DEVICE LiveKRYO2Frequency`;
+	;;
+	GPUFrequency)
+		$BB echo `sh $DEVICE LiveGPUFrequency`;
+	;;
+	CPUTemperature)
+		$BB echo `sh $DEVICE LiveCPUTemperature`;
+	;;
+	KRYOTemperature)
+		$BB echo `sh $DEVICE LiveKRYOCPUTemperature`;
+	;;
+	InstallationCheck)
+		$BB echo `if [ ! -f "/system/etc/init.d/UKM" ]; then $BB echo "UKM file missing in init.d"; elif [ ! -f "/system/addon.d/UKM.sh" ]; then $BB echo "UKM.sh file missing in addon.d"; else $BB echo "All checks OK"; fi`;
+	;;
+	Memory)
+		$BB echo `sh $DEVICE LiveMemory`;
+	;;
+	Time)
+		$BB echo `sh $DEVICE LiveTime $2 $3`;
+	;;
+	TimeCPU1)
+		$BB echo `sh $DEVICE LiveTimeCPU1 $2 $3`;
+	;;
+	TimeCPU2)
+		$BB echo `sh $DEVICE LiveTimeCPU2 $2 $3`;
+	;;
+	TimeKRYO1)
+		$BB echo `sh $DEVICE LiveTimeKRYO1 $2 $3`;
+	;;
+	TimeKRYO2)
+		$BB echo `sh $DEVICE LiveTimeKRYO2 $2 $3`;
+	;;
+	TimeGpu)
+		$BB echo `sh $DEVICE LiveTimeGpu $2 $3`;
+	;;
+	TimeKRYOGpu)
+		$BB echo `sh $DEVICE LiveTimeKRYOGpu $2 $3`;
+	;;
+	UpTime)
+		$BB echo `sh $DEVICE LiveUpTime`;
+	;;
+	UpTimeCPU1)
+		$BB echo `sh $DEVICE LiveUpTimeCPU1`;
+	;;
+	UpTimeCPU2)
+		$BB echo `sh $DEVICE LiveUpTimeCPU2`;
+	;;
+	UpTimeKRYO1)
+		$BB echo `sh $DEVICE LiveUpTimeKRYO1`;
+	;;
+	UpTimeKRYO2)
+		$BB echo `sh $DEVICE LiveUpTimeKRYO2`;
+	;;
+	UnUsed)
+		$BB echo `sh $DEVICE LiveUnUsed`;
+	;;
+	UnUsedCPU1)
+		$BB echo `sh $DEVICE LiveUnUsedCPU1`;
+	;;
+	UnUsedCPU2)
+		$BB echo `sh $DEVICE LiveUnUsedCPU2`;
+	;;
+	UnUsedKRYO1)
+		$BB echo `sh $DEVICE LiveUnUsedKRYO1`;
+	;;
+	UnUsedKRYO2)
+		$BB echo `sh $DEVICE LiveUnUsedKRYO2`;
+	;;
+	UnUsedGpu)
+		$BB echo `sh $DEVICE LiveUnUsedGpu`;
+	;;
+	UnUsedKRYOGpu)
+		$BB echo `sh $DEVICE LiveUnUsedKRYOGpu`;
+	;;
+	WakelocksKernel)
+		$BB echo `sh $DEVICE LiveWakelocksKernel`;
+	;;
+	CpuPvsLevel)
+		$BB echo `sh $DEVICE LiveCpuPvsLevel`;
+	;;
+	ChargeCurrent)
+		$BB echo `sh $DEVICE LiveChargeCurrent`;
+	;;
+	KernelCurrent)
+		$BB echo `sh $DEVICE LiveKernelCurrent`;
+	;;
+	InfoCurrent)
+		$BB echo `sh $DEVICE LiveInfoCurrent`;
+	;;
+	BrickedHotplug)
+		$BB echo `sh $DEVICE LiveBrickedHotplug`;
+	;;
+	IntellidHotplug)
+		$BB echo `sh $DEVICE LiveIntellidHotplug`;
+	;;
+	MsmHotplug)
+		$BB echo `sh $DEVICE LivedMsmHotplug`;
+	;;
+	SimpleThermal)
+		$BB echo `sh $DEVICE LiveSimpleThermal`;
+	;;
+	CpuBoost)
+		$BB echo `sh $DEVICE LiveCpuBoost`;
+	;;
+	StateNotifier)
+		$BB echo `sh $DEVICE LiveStateNotifier`;
+	;;
+	MsmPerformance)
+		$BB echo `sh $DEVICE LiveMsmPerformance`;
+	;;
+	CPU1)
+		$BB echo `sh $DEVICE LiveCPU1`;
+	;;
+	CPU2)
+		$BB echo `sh $DEVICE LiveCPU2`;
+	;;
+	KRYO1)
+		$BB echo `sh $DEVICE LiveKRYO1`;
+	;;
+	KRYO2)
+		$BB echo `sh $DEVICE LiveKRYO2`;
+	;;
+esac;

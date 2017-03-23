@@ -1,0 +1,151 @@
+cat << CTAG
+{
+	name:KRYO 2.2,
+		elements:[
+			{ SLiveLabel:{
+						refresh:0,
+						style:italic,
+						action:"live KRYO2"
+					}},
+			{ SPane:{
+				title:"Live Cpu Frequency:"
+			}},
+				{ SLiveLabel:{
+					refresh:800,
+					style:italic,
+					action:"live KRYO2Frequency"
+				}},
+			{ STitleBar:{
+				title:"CPU Frequency Scaling"
+			}},
+				`if [ -f "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies" ]; then
+					$BB echo '{ SSpacer:{
+						height: 1
+					}},'
+					$BB echo '{ SSeekBar:{
+						title:"Kryo 2.2 Min Scaling Frequency",
+						description:"Set the minimum frequency the CPU scales down to.",
+						default:'\`sh $DEVICE DefaultKRYO2MinFrequency\`',
+						action:"cpuset '\`sh $DEVICE DirKRYO2MinFrequency\`'",
+						values:{'
+							sh $DEVICE KRYO2FrequencyList
+						$BB echo }'
+					}},'
+					$BB echo '{ SSeekBar:{
+						title:"Kryo 2.2 Max Scaling Frequency",
+						description:"Set the maximum frequency the CPU scales up to.",
+						default:'\`sh $DEVICE DefaultKRYO2MaxFrequency\`',
+						action:"cpuset '\`sh $DEVICE DirKRYO2MaxFrequency\`'",
+						values:{'
+							sh $DEVICE KRYO2FrequencyList
+						$BB echo }'
+					}},'
+				fi`
+				{ SSpacer:{
+						height: 1
+				}},
+			{ SPane:{
+				title:"CPU Governor Tunables",
+			}},
+				`if [ -f "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies" ]; then
+					$BB echo '{ SSpacer:{
+						height: 1
+					}},
+					{ SLiveLabel:{
+						refresh:0,
+						style:italic,
+						action:"live KRYO2"
+					}},
+					{ SSpacer:{
+						height: 1
+					}},
+					{ SOptionList:{
+						default:'\`sh $DEVICE DefaultKRYO2Governor\`',
+						action:"cpuset '\`sh $DEVICE DirKRYO2Governor\`'",
+						values:['
+							sh $DEVICE KRYO2GovernorList
+						$BB echo '],
+						notify:[
+							{
+								on:APPLY,
+								do:[ REFRESH, CANCEL ],
+								to:"'\`sh $DEVICE DirCPUGovernorTreeKyro2\`'"
+							},
+							{
+								on:APPLY,
+								do:[ REFRESH, CANCEL ],
+								to:"'\`sh $DEVICE DirCPUGovernorTree\`'"
+							},
+							{
+								on:REFRESH,
+								do:REFRESH,
+								to:"'\`sh $DEVICE DirCPUGovernorTreeKyro2\`'"
+							},
+							{
+								on:REFRESH,
+								do:REFRESH,
+								to:"'\`sh $DEVICE DirCPUGovernorTree\`'"
+							}
+						]
+					}},'
+				fi`
+				{ SSpacer:{
+					height: 2
+				}},
+				{ STreeDescriptor:{
+					path:"`sh $DEVICE DirCPUGovernorTreeKyro2`",
+					generic: {
+						directory: {
+							STreeDescriptor:{
+								generic: {
+									directory: {},
+									element: {
+										SGeneric: { title:"@BASENAME" }
+									}
+								},
+								exclude: [ 
+									"boost_duration", "boostpulse", "cpu_utilization", "multi_phase_freq_tbl", "profile",
+									"up_threshold_h", "up_threshold_l", "version_profiles", "sampling_rate_current", "freq_limit",
+									"music_state", "inputboost_punch_cycles", "inputboost_punch_freq", "inputboost_punch_on_epenmove",
+									"inputboost_punch_on_fingerdown", "inputboost_punch_on_fingermove", "auto_adjust_freq_thresholds",
+									"version", "early_demand", "fast_scaling_up", "fast_scaling_down", "fast_scaling_sleep_up", "fast_scaling_sleep_down"
+									"scaling_up_block_freq", "scaling_block_freq", "inputboost_typingbooster_cores", "music_max_freq", "music_min_freq"
+								]
+							},
+						}
+					},
+					exclude: [ "all_cpus", "kset", "overall_stats", "stats", "vdd_table" ]
+				}},
+				{ SSpacer:{
+						height: 1
+				}},
+					{ STreeDescriptor:{
+					path:"`sh $DEVICE DirCPUGovernorTree`",
+					generic: {
+						directory: {
+							STreeDescriptor:{
+								generic: {
+									directory: {},
+									element: {
+										SGeneric: { title:"@BASENAME" }
+									}
+								},
+								exclude: [ 
+									"boost_duration", "boostpulse", "cpu_utilization", "multi_phase_freq_tbl", "profile",
+									"up_threshold_h", "up_threshold_l", "version_profiles", "sampling_rate_current", "freq_limit",
+									"music_state", "inputboost_punch_cycles", "inputboost_punch_freq", "inputboost_punch_on_epenmove",
+									"inputboost_punch_on_fingerdown", "inputboost_punch_on_fingermove", "auto_adjust_freq_thresholds",
+									"version", "early_demand", "fast_scaling_up", "fast_scaling_down", "fast_scaling_sleep_up", "fast_scaling_sleep_down"
+									"scaling_up_block_freq", "scaling_block_freq", "inputboost_typingbooster_cores", "music_max_freq", "music_min_freq"
+								]
+							},
+						}
+					},
+					exclude: [ "all_cpus", "kset", "overall_stats", "stats", "vdd_table" ]
+				}},
+				{ SSpacer:{
+						height: 1
+				}},
+		]
+}
+CTAG
