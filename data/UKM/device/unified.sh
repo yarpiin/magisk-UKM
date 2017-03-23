@@ -954,12 +954,23 @@ case "$1" in
 		$BB echo $WL;
 	;;
 	MaxCPU)
-		MAXCPU=/sys/devices/system/cpu/cpu4/cpufreq/scaling_cur_freq;
+		MAXCPU=/sys/devices/system/cpu/cpu7/cpufreq/scaling_cur_freq;
+		MAXCPU1=/sys/module/clock_cpu_8996;
+		MAXCPU2=/sys/module/clock_cpu_8956;
+		
 		
 		if [ -f "$MAXCPU" ]; then
 			$BB echo "8"
 		else
 			$BB echo "4"
+		fi;
+		
+		if [ -d "$MAXCPU1" ]; then
+			$BB echo "4"
+		fi;
+		
+		if [ -d "$MAXCPU2" ]; then
+			$BB echo "6"
 		fi;
 	;;
 	MinFreqIndex)
@@ -976,7 +987,7 @@ case "$1" in
 		$BB echo $MFIT;
 	;;
 	SetCPUGovernor)
-		for CPU in /sys/devices/system/cpu/cpu[1-3]; do
+		for CPU in /sys/devices/system/cpu/cpu[0-3]; do
 			$BB echo 1 > $CPU/online 2> /dev/null;
 			$BB echo $2 > $CPU/cpufreq/scaling_governor 2> /dev/null;
 		done;
@@ -1157,10 +1168,10 @@ case "$1" in
 			$BB echo "CPU 2"
 	;;
 	LiveKRYO1)
-			$BB echo "Kryo 2.2 Cluster"
+			$BB echo "Kryo 1.6 Cluster"
 	;;
 	LiveKRYO2)
-			$BB echo "Kryo 1.6 Cluster"
+			$BB echo "Kryo 2.2 Cluster"
 	;;
 	LiveCpuBoost)
 			$BB echo "CPU Boost"
@@ -1173,5 +1184,25 @@ case "$1" in
 	;;
 	LiveMsmPerformance)
 			$BB echo "MSM Performance Driver"
+	;;
+	LiveCpuCluster)
+	
+	CPUCLST=/sys/module/clock_cpu_8996;
+	
+		if [ -d "$CPUCLST" ]; then
+			$BB echo "KYRO 1.6 Cluster"
+		else
+			$BB echo "A53 Cluster"
+		fi;
+	;;
+	LiveCpuCluster1)
+	
+	CPUCLST=/sys/module/clock_cpu_8996;
+	
+		if [ -d "$CPUCLST" ]; then
+			$BB echo "KYRO 2.2 Cluster"
+		else
+			$BB echo "A57 Cluster"
+		fi;
 	;;
 esac;

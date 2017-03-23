@@ -144,4 +144,10 @@ case $1 in
 	KRYO2)
 		$BB echo `sh $DEVICE LiveKRYO2`;
 	;;
+	CpuCluster)
+		$BB echo `sh $DEVICE LiveCpuCluster`;
+	;;
+	CpuCluster1)
+		$BB echo `sh $DEVICE LiveCpuCluster`;
+	;;
 esac;

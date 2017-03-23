@@ -35,6 +35,15 @@ cat << CTAG
 							action:"boolean /sys/module/cpu_boost/parameters/cpuboost_enable"
 						}},'
 					fi
+					if [ -f "/sys/module/cpu_boost/parameters/input_boost_enabled" ]; then
+					INBST=\`$BB cat /sys/module/cpu_boost/parameters/input_boost_enabled\`
+						echo '{ SCheckBox:{
+								label:"Input Boost",
+								description:"Enable/Disable Input Boost.",
+								default:'$INBST',
+								action:"generic /sys/module/cpu_boost/parameters/input_boost_enabled"
+						}},'
+					fi
 					if [ -f "/sys/module/cpu_boost/parameters/debug_mask" ]; then
 					DEBUG=\`$BB cat /sys/module/cpu_boost/parameters/debug_mask\`
 						echo '{ SCheckBox:{
