@@ -1,5 +1,3 @@
-**DISCLAIMER**: This is an adaption by me([laggardkernel](https://github.com/laggardkernel)) of the original [Universal Kernel Manager Reborn - unified / any device](https://forum.xda-developers.com/android/software/zip-ukm-reborn-unified-t3558888). All the credit belongs to the creator [yarpiin](https://forum.xda-developers.com/member.php?u=5288056). The work here is done for experiment in Magisk.
-
 # UKM REBORN (Magisk)
 
 ![Synapse logo](https://img.xda-cdn.com/GaXL_y1JB8STTK4pFTitRmFcZeI=/https%3A%2F%2Flh4.ggpht.com%2Fed5XjMyiltwErAFCohZ8cObQilX0aF9EIhQv9bydwGgBpC1a8tHI0zW2LRVxktu_dBc%3Dw300)
@@ -50,11 +48,16 @@ In this thread you will find UNIFIED version of UKM that should work on any devi
 
 ### Download:
 
-[https://www.androidfilehost.com/?w=files&flid=154993](https://www.androidfilehost.com/?w=files&flid=154993)
+- [UKM FLASHABLE ZIP](https://www.androidfilehost.com/?w=files&flid=154993)
+- [UKM - Magisk Module](https://github.com/yarpiin/magisk-UKM)
 
 ### Git:
 
 [https://github.com/yarpiin/UKM-unified.git](https://github.com/yarpiin/UKM-unified.git)
+
+### Changelog:
+
+[https://github.com/yarpiin/UKM-unified/blob/UKM-Enhanced/changelog.txt](https://github.com/yarpiin/UKM-unified/blob/UKM-Enhanced/changelog.txt)
 
 ### Credits:
 
@@ -62,6 +65,7 @@ In this thread you will find UNIFIED version of UKM that should work on any devi
 - @AndreiLux - for his awesome app Synapse.
 - @osm0sis
 - @eng.stk
+- @laggardkernel - Magisk Module
 
 Any suggestions, bugs or others settings you need just let me know.
 
@@ -83,26 +87,17 @@ Any suggestions, bugs or others settings you need just let me know.
 > - **Current Beta Version**: 3.8.2 
 > - **Beta Release Date**: 2017-02-18 
 > - **Created** 2017-02-18 
-> - **Last Updated** 2017-02-18 
+> - **Last Updated** 2017-03-25
 
-### Changelog
+### Supported and tested devices so far:
 
-[https://github.com/yarpiin/UKM-unified/blob/UKM-Enhanced/changelog.txt](https://github.com/yarpiin/UKM-unified/blob/UKM-Enhanced/changelog.txt)
-
-### Support devices
-
-- OnePlus 3 / 3T
-- LG G5
-- Alcatel Pop C2
-- Samsung galaxy S7 Edge (exynos)
-- Galaxy S6 SM-G925F
+[https://forum.xda-developers.com/showpost.php?p=71086001&postcount=2](https://forum.xda-developers.com/showpost.php?p=71086001&postcount=2)
 
 ### Support Links
 
 - [\[ZIP\] \[Synapse\] Universal Kernel Manager Reborn - unified / any device](https://forum.xda-developers.com/android/software/zip-ukm-reborn-unified-t3558888) by [yarpiin](https://forum.xda-developers.com/member.php?u=5288056)
-- [Synapse + Script => Universal Kernel Manager](http://forum.xda-developers.com/android/software/zip-synapse-script-universal-kernel-t2736986/post70227337) by [apb_axel](http://forum.xda-developers.com/member.php?u=5658634)
-- [\[Kernel\] \[CM14.1\] \[Synapse\] YARPIIN KERNEL](http://forum.xda-developers.com/oneplus-3/development/kernel-yarpiin-kernel-22-11-2016-t3524162) by [yarpiin](http://forum.xda-developers.com/member.php?u=5288056)
-- [Universal Kernel Manager for OP3](http://forum.xda-developers.com/oneplus-3/themes/ukm-op3-install-synapse-tune-kernel-t3524761) made by [yarpiin](http://forum.xda-developers.com/member.php?u=5288056)
-- [Universal Kernel Manager for OP3 Thread](http://forum.xda-developers.com/oneplus-3/themes/ukm-op3-install-synapse-tune-kernel-t3524761) by [urgali](http://forum.xda-developers.com/member.php?u=6781432)
-- [Magisk - Root & Universal Systemless Interface \[Android 5.0+\]](http://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445) by [topjohnwu @XDA](http://forum.xda-developers.com/member.php?u=4470081)
-- [This Magisk module](https://github.com/laggardkernel/UKM/tree/UKM-Magisk-unified) by [laggardkernel @Github](https://github.com/laggardkernel)
+- [Magisk - Root & Universal Systemless Interface](http://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445) by [topjohnwu](http://forum.xda-developers.com/member.php?u=4470081)
+
+### Tips for the Magisk version:
+- Reboot is needed for an installation
+- No reboot is needed for an **update** in Magisk Manager
