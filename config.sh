@@ -43,9 +43,10 @@ POSTFSDATA=false
 LATESTARTSERVICE=true
 
 # Custom variables
-VERSION="unified-007"
+VERSION="unified-008"
 REVISION="0.1"
 AUTHOR="yarpiin"
+MAGISK="laggardkernel"
 
 
 # Check module's existance, do cleaning up after removal
@@ -61,9 +62,11 @@ print_modname() {
   ui_print "******************************"
   ui_print "   Universal Kernel Manager   "
   ui_print " "
-  ui_print "          $VERSION"
-  ui_print " "
   ui_print "          by $AUTHOR"
+  ui_print " "
+  ui_print "         Magisk Module        "
+  ui_print " "
+  ui_print "          by $MAGISK"
   # ui_print "******************************"
 }
 
