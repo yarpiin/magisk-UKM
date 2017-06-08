@@ -122,44 +122,6 @@ image_size_check() {
   curSizeM=$((curSizeM * 4 / 1024))
 }
 
-# Custom functions
-# install/update apk into /data
-# Usage: install_package  $APKNAME $PACKAGENAME "normal"
-#        use "force" as 3rd input will force an update
-install_package() {
-  if [ -f "$INSTALLER/common/$1" ]; then
-    if [ ! -z "$3" -a "$3" = "force" ] || [ -z `ls /data/app | grep "$2"-` ]; then
-      ui_print "- Installing ${1%.apk} into /data"
-      APKPATH="$2"-1
-      for i in 1 2 3 4 5 6 7 8 9; do
-        if [ `cat /data/system/packages.xml | grep "${2}-${i}" >/dev/null 2>&1; echo $?` -eq 0 ]; then
-          APKPATH="${2}-${i}"
-          break;
-        fi
-      done
-      rm -rf /data/app/"$2"-*
-
-      ui_print "  target path: /data/app/$APKPATH"
-
-      mkdir -p /data/app/$APKPATH
-      chown 1000.1000 /data/app/$APKPATH
-      chmod 0755 /data/app/$APKPATH
-      chcon u:object_r:apk_data_file:s0 /data/app/$APKPATH
-
-      cp $INSTALLER/common/$1 /data/app/$APKPATH/base.apk
-      chown 1000.1000 /data/app/$APKPATH/base.apk
-      chmod 0644 /data/app/$APKPATH/base.apk
-      chcon u:object_r:apk_data_file:s0 /data/app/$APKPATH/base.apk
-
-      rm /data/$1 2>/dev/null
-
-    fi
-
-  else
-    ui_print "! ${1%.apk} is not included, install it later by yourself"
-
-  fi
-}
 
 ##########################################################################################
 # Flashable update-binary preparation
@@ -324,7 +286,7 @@ else
 fi
 
 # Clean conflicts
-ui_print "- Cleaning conflicts in /data"
+
 rm -rf /data/N4UKM
 rm -rf /data/UKM
 
@@ -340,8 +302,15 @@ unzip -o "$ZIP" "data/*" -d /
 [ ! -d "/magisk/.core/post-fs-data.d" ] && mkdir -p /magisk/.core/post-fs-data.d
 cp -af $INSTALLER/common/$CHECKERSCRIPT /magisk/.core/post-fs-data.d/
 
-# Install package into /data
-install_package "$APKNAME" "$PACKAGENAME" "normal"
+# Install package into system/data
+
+ui_print "- Installing Synapse ..."
+
+mount -o remount,rw /system;
+mkdir /system/app/Synapse;
+set_perm_recursive 0 0 0755 0755 /system/app/Synapse;
+cp -f $INSTALLER/common/Synapse.apk /system/app/Synapse/Synapse.apk;
+set_perm_recursive 0 0 0644 0755 /system/app;
 
 # Handle replace folders
 for TARGET in $REPLACE; do

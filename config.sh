@@ -47,8 +47,6 @@ VERSION="unified-007"
 REVISION="0.1"
 AUTHOR="yarpiin"
 
-APKNAME="Synapse_v0.45.apk"
-PACKAGENAME="com.af.synapse"
 
 # Check module's existance, do cleaning up after removal
 CHECKERSCRIPT="ukm-checker.sh"
@@ -104,6 +102,8 @@ set_permissions() {
   set_perm_recursive  $MODPATH/system/xbin  0  2000  0755  0755
 
   set_perm_recursive  /data/UKM  0  0  0755  0755
+  
+  set_perm_recursive  system/app/Synapse  0  0  0644  0755
 
   # Only some special files require specific permissions
   # The default permissions should be good enough for most cases
