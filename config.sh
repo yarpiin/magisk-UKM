@@ -66,7 +66,7 @@ print_modname() {
   ui_print " "
   ui_print "         Magisk Module        "
   ui_print " "
-  ui_print "          by $MAGISK"
+  ui_print "        by $MAGISK"
   # ui_print "******************************"
 }
 

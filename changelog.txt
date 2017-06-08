@@ -1,6 +1,24 @@
 /
 P/oject name: UKM-unified
 
+08/06/17
+
+  * Info: update links (Slawek) [ab65148]
+  * Cpuboost: Add variables for kryo based devices and correct support of  other devices (Slawek) [5350aa7]
+  * UKM: tidy up and merge most kryo into normal cpu tabs (Slawek) [15fce75]
+  * UKM: change to update-binary instead of script - based on Anykernel2 by osm0sis (Slawek) [3e9b4cb]
+
+23/03/17
+
+  * hotplug: msm performance adjust and add disable knob (Slawek) [67a0692]
+  * hotplug: Core Control add missing support for a57 cluster (Slawek) [73d929c]
+  * device.sh: add support for hexa core msm8956 soc (Slawek) [375aca4]
+  * hotplug: Lazyplug fix enable switch (Slawek) [ea07244]
+  * device.sh: Corect Kyro clusters naming (Slawek) [b750a10]
+  * update busybox (Slawek) [fec09af]
+  * cpuboost: add input boost toggle (Slawek) [cb5e78d]
+  * changelog: update (Slawek) [7d4ec39]
+
 12/03/17
 
   * UKM: add latest version of Synapse (Slawek) [98c6e4c]
@@ -23,16 +41,9 @@ P/oject name: UKM-unified
   * gpu: more governors (Slawek) [acd15f6]
   * gpu: governors for various devices (Slawek) [85ca057]
 
-02/03/2017 005
-
-  * more gpu support
-  * enabled sound tab for flars sound control
-  * added adrenoboost tunables
-  * cleaned it a bit 
-
 26/02/2017
 
-  * misc: add various versions of powersuspend (Slawek) [9ccb750]
+ * misc: add various versions of powersuspend (Slawek) [9ccb750]
   * refresh: reduce refresh rate (Slawek) [cd6f73c]
   * live: remove doubled gpu rfequency (Slawek) [7c7bc15]
   * gpu: add more frequency scaling paths and merge kryo (Slawek) [e1b4106]
