@@ -21,7 +21,10 @@ cat << CTAG
 					description:"Version 3.8.2 - Unified"
 				}},
 				{ SDescription:{
-					description:"XDA Link: <a href='http://forum.xda-developers.com/android/software/zip-synapse-script-universal-kernel-t2736986'>HERE</a>"
+					description:"XDA Link: <a href='https://forum.xda-developers.com/android/software/zip-ukm-reborn-unified-t3558888'>HERE</a>"
+				}},
+				{ SDescription:{
+					description:"UKM Download: <a href='https://www.androidfilehost.com/?w=files&flid=154993'>HERE</a>"
 				}},
 				{ SPane:{
 					title:"Special thanks to"

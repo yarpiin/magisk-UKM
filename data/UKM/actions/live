@@ -15,15 +15,6 @@ case $1 in
 	CPU1Frequency)
 		$BB echo `sh $DEVICE LiveCPU1Frequency`;
 	;;
-	CPU2Frequency)
-		$BB echo `sh $DEVICE LiveCPU2Frequency`;
-	;;
-	KRYO1Frequency)
-		$BB echo `sh $DEVICE LiveKRYO1Frequency`;
-	;;
-	KRYO2Frequency)
-		$BB echo `sh $DEVICE LiveKRYO2Frequency`;
-	;;
 	GPUFrequency)
 		$BB echo `sh $DEVICE LiveGPUFrequency`;
 	;;
@@ -137,17 +128,4 @@ case $1 in
 	;;
 	CPU2)
 		$BB echo `sh $DEVICE LiveCPU2`;
-	;;
-	KRYO1)
-		$BB echo `sh $DEVICE LiveKRYO1`;
-	;;
-	KRYO2)
-		$BB echo `sh $DEVICE LiveKRYO2`;
-	;;
-	CpuCluster)
-		$BB echo `sh $DEVICE LiveCpuCluster`;
-	;;
-	CpuCluster1)
-		$BB echo `sh $DEVICE LiveCpuCluster`;
-	;;
 esac;

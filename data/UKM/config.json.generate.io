@@ -2,9 +2,9 @@ cat << CTAG
 {
 	name:I/O,
 		elements:[
-			{ STitleBar:{
-				title:"I/O Control"
-			}},
+                    { STitleBar:{ 
+                        title:"I/O Control" 
+                                }},
 				{ SSeekBar:{
 					title:"Read-ahead Size",
 					description:"Set the read-ahead size for the internal storage.",

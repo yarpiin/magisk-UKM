@@ -7,14 +7,23 @@ cat << CTAG
 						style:italic,
 						action:"live CPU1"
 					}},
+			{ SSpacer:{
+						height: 1
+				    }},
 			{ SPane:{
 				title:"Live Cpu Frequency:"
 			}},
+			{ SSpacer:{
+						height: 1
+				    }},
 				{ SLiveLabel:{
 					refresh:800,
 					style:italic,
-					action:"live CPU1Frequency"
+					action:"live CPUFrequency"
 				}},
+			{ SSpacer:{
+						height: 1
+				    }},
 			{ STitleBar:{
 				title:"CPU Frequency Scaling"
 			}},
@@ -25,19 +34,19 @@ cat << CTAG
 					$BB echo '{ SSeekBar:{
 						title:"CPU Min Scaling Frequency",
 						description:"Set the minimum frequency the CPU scales down to.",
-						default:'\`sh $DEVICE DefaultCPU1MinFrequency\`',
-						action:"cpuset '\`sh $DEVICE DirCPU1MinFrequency\`'",
+						default:'\`sh $DEVICE DefaultCPUMinFrequency\`',
+						action:"cpuset '\`sh $DEVICE DirCPUMinFrequency\`'",
 						values:{'
-							sh $DEVICE CPU1FrequencyList
+							sh $DEVICE CPUFrequencyList
 						$BB echo }'
 					}},'
 					$BB echo '{ SSeekBar:{
 						title:"CPU Max Scaling Frequency",
 						description:"Set the maximum frequency the CPU scales up to.",
-						default:'\`sh $DEVICE DefaultCPU1MaxFrequency\`',
-						action:"cpuset '\`sh $DEVICE DirCPU1MaxFrequency\`'",
+						default:'\`sh $DEVICE DefaultCPUMaxFrequency\`',
+						action:"cpuset '\`sh $DEVICE DirCPUMaxFrequency\`'",
 						values:{'
-							sh $DEVICE CPU1FrequencyList
+							sh $DEVICE CPUFrequencyList
 						$BB echo }'
 					}},'
 				fi`
@@ -49,7 +58,7 @@ cat << CTAG
 			}},
 				`if [ -f "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies" ]; then
 					$BB echo '{ SSpacer:{
-						height: 1
+						height: 2
 					}},
 					{ SLiveLabel:{
 						refresh:0,
