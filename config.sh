@@ -43,7 +43,7 @@ POSTFSDATA=false
 LATESTARTSERVICE=true
 
 # Custom variables
-VERSION="unified-008"
+VERSION="unified-009"
 REVISION="0.1"
 AUTHOR="yarpiin"
 MAGISK="laggardkernel"

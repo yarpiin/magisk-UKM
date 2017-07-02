@@ -36,14 +36,6 @@ cat << CTAG
 							'\`sh $DEVICE GPUFrequencyList\`'
 						}
 				}},'
-					$BB echo '{ SButton:{
-						label:"Enable GPU Gaming Boost",
-						action:"gpuboost enable"
-				}},'
-					$BB echo '{ SButton:{
-						label:"Disable GPU Gaming Boost",
-						action:"gpuboost disable"
-				}},'
 				fi`
 			`if [ -f "\`sh $DEVICE DirGPUGovernor\`" ]; then
 			GPUGOV=\`sh $DEVICE DirGPUGovernor\`

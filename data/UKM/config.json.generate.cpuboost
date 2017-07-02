@@ -317,6 +317,20 @@ cat << CTAG
 					    }},'
 				    fi
 				fi`
+				`if [ -d "/sys/kernel/fp_boost" ]; then
+				    $BB echo '{ SPane:{
+					    title:"Fingerprint Boost"
+				    }},'
+				    if [ -f "/sys/kernel/fp_boost/enabled" ]; then
+					    INB=\`$BB cat /sys/kernel/fp_boost/enabled\`
+						$BB echo '{ SCheckBox:{
+							label:"Enable",
+							description:"Fingerprint Boost driver from Frap129",
+							default:'$INB',
+							action:"generic /sys/kernel/cpu_input_boost/enabled"
+						}},'
+					fi
+				fi`
 		]
 }
 CTAG

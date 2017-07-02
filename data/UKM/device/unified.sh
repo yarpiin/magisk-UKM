@@ -70,7 +70,7 @@ case "$1" in
 
 		$BB echo $MAXCPU;
 	;;
-        DefaultCPU2MaxFrequency)
+    DefaultCPU2MaxFrequency)
 		while read FREQ TIME; do
 			if [ $FREQ -le "2260000" ]; then
 				MAXCPU=$FREQ;
@@ -90,7 +90,7 @@ case "$1" in
 
 		$BB echo $MINCPU;
 	;;
-        DefaultCPU1MinFrequency)
+    DefaultCPU1MinFrequency)
 		S=0;
 		while read FREQ TIME; do
 			if [ $FREQ -ge "300000" ] && [ $S -eq "0" ]; then
@@ -137,31 +137,31 @@ case "$1" in
 	DirCPUGovernor)
 		$BB echo "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor";
 	;;
-        DirCPU1Governor)
+    DirCPU1Governor)
 		$BB echo "/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor";
 	;;
-        DirCPU2Governor)
+    DirCPU2Governor)
 		$BB echo "/sys/devices/system/cpu/cpu4/cpufreq/scaling_governor";
 	;;
 	DirCPUGovernorTree)
 		$BB echo "/sys/devices/system/cpu/cpufreq";
 	;;
-        DirCPU1GovernorTree)
+    DirCPU1GovernorTree)
 		$BB echo "/sys/devices/system/cpu/cpu0/cpufreq";
 	;;
-        DirCPU2GovernorTree)
+    DirCPU2GovernorTree)
 		$BB echo "/sys/devices/system/cpu/cpu2/cpufreq";
 	;;
-        DirCPU3GovernorTree)
+    DirCPU3GovernorTree)
 		$BB echo "/sys/devices/system/cpu/cpu4/cpufreq";
 	;;
 	DirCPUMaxFrequency)
 		$BB echo "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq";
 	;;
-        DirCPU1MaxFrequency)
+    DirCPU1MaxFrequency)
 		$BB echo "/sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq";
 	;;
-        DirCPU2MaxFrequency)
+    DirCPU2MaxFrequency)
 		$BB echo "/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq";
 	;;
 	DirCPUMinFrequency)
@@ -173,7 +173,7 @@ case "$1" in
 	DirCPU2MinFrequency)
 		$BB echo "/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq";
 	;;
-        DirGPUGovernor)
+    DirGPUGovernor)
 		GPUGOV=/sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/governor;
 		GPUGOV1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/governor;
 		GPUGOV2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor;
@@ -197,6 +197,7 @@ case "$1" in
 		GPUMAXFREQ1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/max_freq;
 		GPUMAXFREQ2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk;
 		GPUMAXFREQ3=/sys/class/kgsl/kgsl-3d0/devfreq/max_freq;
+		GPUMAXFREQ4=/sys/class/kgsl/kgsl-3d0/max_gpuclk;
 		
 		if [ -f "$GPUMAXFREQ" ]; then
 			$BB echo "$GPUMAXFREQ";
@@ -210,12 +211,16 @@ case "$1" in
 		if [ -f "$GPUMAXFREQ3" ]; then
 			$BB echo "$GPUMAXFREQ3";
 		fi;
+		if [ -f "$GPUMAXFREQ4" ]; then
+			$BB echo "$GPUMAXFREQ4";
+		fi;
 	;;
 	DirGPUMinPwrLevel)
 		GPUMPW=/sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/min_freq;
 		GPUMPW1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/min_freq;
 		GPUMPW2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel;
 		GPUMPW3=/sys/class/kgsl/kgsl-3d0/devfreq/min_freq;
+		GPUMPW4=/sys/class/kgsl/kgsl-3d0/min_pwrlevel;
 		
 		if [ -f "$GPUMPW" ]; then
 			$BB echo "$GPUMPW";
@@ -228,6 +233,9 @@ case "$1" in
 		fi;
 		if [ -f "$GPUMPW3" ]; then
 			$BB echo "$GPUMPW3";
+		fi;
+		if [ -f "$GPUMPW4" ]; then
+			$BB echo "$GPUMPW4";
 		fi;
 	;;
 	#DirGPUNumPwrLevels)
@@ -243,15 +251,15 @@ case "$1" in
 	#	$BB echo "/sys/devices/soc/b00000.qcom,kgsl-3d0/devfreq/b00000.qcom,kgsl-3d0/device/kgsl/kgsl-3d0/pwrscale/policy"; 
 	#;;
 	DirIOScheduler)
-                $BB echo "/sys/block/mmcblk0/queue/scheduler";
+        $BB echo "/sys/block/mmcblk0/queue/scheduler";
 	;;
-        DirKRYOIOScheduler)
+    DirKRYOIOScheduler)
 		$BB echo "/sys/block/sda/queue/scheduler";
 	;;
 	DirIOSchedulerTree)
-                $BB echo "/sys/block/mmcblk0/queue/iosched";
+        $BB echo "/sys/block/mmcblk0/queue/iosched";
 	;;
-        DirKRYOIOSchedulerTree)
+    DirKRYOIOSchedulerTree)
 		$BB echo "/sys/block/sda/queue/iosched";
 	;;
 	DirTCPCongestion)
@@ -262,6 +270,7 @@ case "$1" in
 		GPUFREQ1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/max_freq;
 		GPUFREQ2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk;
 		GPUFREQ3=/sys/class/kgsl/kgsl-3d0/devfreq/available_frequencies;
+		GPUFREQ4=/sys/class/kgsl/kgsl-3d0/gpu_available_frequencies;
 		
 		if [ -f "$GPUFREQ" ]; then
 			for GPUFREQ in `$BB cat /sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
@@ -287,6 +296,12 @@ case "$1" in
 				$BB echo "$GPUFREQ:\"${LABEL} MHz\", ";
 			done;
 		fi;
+		if [ -f "$GPUFREQ4" ]; then
+			for GPUFREQ in `$BB cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
+			LABEL=$((GPUFREQ / 1000000));
+				$BB echo "$GPUFREQ:\"${LABEL} MHz\", ";
+			done;
+		fi;
 	;;
 
 	GPUGovernorList)
@@ -297,6 +312,7 @@ case "$1" in
 		GPUPW1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/min_freq;
 		GPUPW2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel;
 		GPUPW3=/sys/class/kgsl/kgsl-3d0/devfreq/available_frequencies;
+		GPUPW4=/sys/class/kgsl/kgsl-3d0/num_pwrlevels;
 		
 		if [ -f "$GPUPW" ]; then
 			for GPUFREQ in `$BB cat /sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
@@ -326,6 +342,17 @@ case "$1" in
 				$BB echo "$GPUFREQ:\"${LABEL} MHz\", ";
 			done;
 		fi;
+		if [ -f "$GPUPW4" ]; then
+			NUM_PWRLVL=`$BB cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/num_pwrlevels`;
+			NUM_PWRLVL=`$BB cat /sys/class/kgsl/kgsl-3d0/num_pwrlevels`;
+			PWR_LEVEL=-1;
+			for GPUFREQ in `$BB cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies`; do
+			PWR_LEVEL=$((PWR_LEVEL + 1));
+			MIN_PWRLVL=$((NUM_PWRLVL - PWR_LEVEL));
+			LABEL=$((GPUFREQ / 1000000));
+				$BB echo "$MIN_PWRLVL:\"${LABEL} MHz\", ";
+		done;
+		fi;
 	;;
 	HasBootloader)
 		$BB echo "1";
@@ -340,19 +367,18 @@ case "$1" in
 		$BB echo "22";
 	;;
 	IOSchedulerList)
+        IOSCH1=/sys/block/mmcblk0/queue/scheduler;
+        IOSCH2=/sys/block/sda/queue/scheduler;
                 
-                IOSCH1=/sys/block/mmcblk0/queue/scheduler;
-                IOSCH2=/sys/block/sda/queue/scheduler;
-                
-                if [ -f "IOSCH1" ]; then
-                        for IOSCHED in `$BB cat /sys/block/mmcblk0/queue/scheduler | $BB sed -e 's/\]//;s/\[//'`; do
-                                $BB echo "\"$IOSCHED\",";
-                        done;
+        if [ -f "IOSCH1" ]; then
+			for IOSCHED in `$BB cat /sys/block/mmcblk0/queue/scheduler | $BB sed -e 's/\]//;s/\[//'`; do
+				$BB echo "\"$IOSCHED\",";
+			done;
 		fi;
 		if [ -f "IOSCH2" ]; then
-                        for IOSCHED in `$BB cat /sys/block/sda/queue/scheduler | $BB sed -e 's/\]//;s/\[//'`; do
-                                $BB echo "\"$IOSCHED\",";
-                        done;
+			for IOSCHED in `$BB cat /sys/block/sda/queue/scheduler | $BB sed -e 's/\]//;s/\[//'`; do
+				$BB echo "\"$IOSCHED\",";
+			done;
 		fi;
 	;;
 	KRYOIOSchedulerList)
@@ -399,7 +425,6 @@ case "$1" in
 		$BB echo "Version: $version@nState: $state@nTamper: $tamper";
 	;;
 	LiveCPUFrequency)
-
         LCPU=/sys/module/clock_cpu_8996;        
 
 		CPU0=`$BB cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq 2> /dev/null`;
@@ -476,9 +501,12 @@ case "$1" in
 		if [ -d "$CPUK" ]; then
 			CPUT="$((`$BB cat $CPU_C` / 10)) °C";
 			
-			$BB echo "$CPUT";  
+			$BB echo "$CPUT"; 
+
 		else
-			$BB echo "$CPU_C°C";
+		
+			$BB echo "$((`$BB cat $CPU_C`)) °C";
+			
 		fi;
 	;;
 	LiveGPUFrequency)
@@ -539,7 +567,7 @@ case "$1" in
 		STATE=${STATE%??};
 		$BB echo "$STATE";
 	;;
-        LiveTimeCPU1)
+    LiveTimeCPU1)
 		STATE="";
 		CNT=0;
 		SUM=`$BB awk '{s+=$2} END {print s}' /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state`;
@@ -560,7 +588,7 @@ case "$1" in
 		STATE=${STATE%??};
 		$BB echo "$STATE";
 	;;
-        LiveTimeCPU2)
+    LiveTimeCPU2)
 		STATE="";
 		CNT=0;
 		SUM=`$BB awk '{s+=$2} END {print s}' /sys/devices/system/cpu/cpu4/cpufreq/stats/time_in_state`;
@@ -581,7 +609,7 @@ case "$1" in
 		STATE=${STATE%??};
 		$BB echo "$STATE";
 	;;
-        LiveTimeGpu)
+    LiveTimeGpu)
 		STATE="";
 		CNT=0;
 		SUM=`$BB awk '{s+=$2} END {print s}' /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/time_in_state`;
@@ -617,7 +645,7 @@ case "$1" in
 		SLEEP=`$BB echo - | $BB awk -v "S=$SLEEP" '{printf "%dh:%dm:%ds",S/(60*60),S%(60*60)/60,S%60}'`;
 		$BB echo "Total: $TOTAL (100.0%)@nSleep: $SLEEP ($PERC_S)@nAwake: $AWAKE ($PERC_A)";
 	;;
-        LiveUpTimeCPU1)
+    LiveUpTimeCPU1)
 		TOTAL=`$BB awk '{ print $1 }' /proc/uptime`;
 		AWAKE=$((`$BB awk '{s+=$2} END {print s}' /sys/devices/system/cpu/cpu2/cpufreq/stats/time_in_state` / 100));
 		SLEEP=`$BB awk "BEGIN { print ($TOTAL - $AWAKE) }"`;
@@ -632,7 +660,7 @@ case "$1" in
 		SLEEP=`$BB echo - | $BB awk -v "S=$SLEEP" '{printf "%dh:%dm:%ds",S/(60*60),S%(60*60)/60,S%60}'`;
 		$BB echo "Total: $TOTAL (100.0%)@nSleep: $SLEEP ($PERC_S)@nAwake: $AWAKE ($PERC_A)";
 	;;
-        LiveUpTimeCPU2)
+    LiveUpTimeCPU2)
 		TOTAL=`$BB awk '{ print $1 }' /proc/uptime`;
 		AWAKE=$((`$BB awk '{s+=$2} END {print s}' /sys/devices/system/cpu/cpu4/cpufreq/stats/time_in_state` / 100));
 		SLEEP=`$BB awk "BEGIN { print ($TOTAL - $AWAKE) }"`;
@@ -772,13 +800,13 @@ case "$1" in
 			$BB echo $2 > $CPU/cpufreq/scaling_governor 2> /dev/null;
 		done;
 	;;
-        SetCPU2Governor)
+    SetCPU2Governor)
 		for CPU in /sys/devices/system/cpu/cpu[2-3]; do
 			$BB echo 1 > $CPU/online 2> /dev/null;
 			$BB echo $2 > $CPU/cpufreq/scaling_governor 2> /dev/null;
 		done;
 	;;
-        SetCPU3Governor)
+    SetCPU3Governor)
 		for CPU in /sys/devices/system/cpu/cpu[4-7]; do
 			$BB echo 1 > $CPU/online 2> /dev/null;
 			$BB echo $2 > $CPU/cpufreq/scaling_governor 2> /dev/null;
@@ -814,19 +842,19 @@ case "$1" in
 			$BB echo $2 > $CPU/cpufreq/scaling_min_freq 2> /dev/null;
 		done;
 	;;
-        SetCPU1MinFrequency)
+    SetCPU1MinFrequency)
 		for CPU in /sys/devices/system/cpu/cpu[0-3]; do
 			$BB echo 1 > $CPU/online 2> /dev/null;
 			$BB echo $2 > $CPU/cpufreq/scaling_min_freq 2> /dev/null;
 		done;
 	;;
-        SetCPU2MinFrequency)
+    SetCPU2MinFrequency)
 		for CPU in /sys/devices/system/cpu/cpu[2-3]; do
 			$BB echo 1 > $CPU/online 2> /dev/null;
 			$BB echo $2 > $CPU/cpufreq/scaling_min_freq 2> /dev/null;
 		done;
 	;;
-        SetCPU3MinFrequency)
+    SetCPU3MinFrequency)
 		for CPU in /sys/devices/system/cpu/cpu[4-7]; do
 			$BB echo 1 > $CPU/online 2> /dev/null;
 			$BB echo $2 > $CPU/cpufreq/scaling_min_freq 2> /dev/null;

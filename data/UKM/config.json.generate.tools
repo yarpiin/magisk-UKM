@@ -2,31 +2,6 @@ cat << CTAG
 {
 	name:TOOLS,
 		elements:[
-			`if [ "\`sh $DEVICE HasBootloader\`" == "1" ] && [ -e "\`sh $DEVICE DirKernelIMG\`" ]; then
-				$BB echo '{ STitleBar:{
-					title:"Bootloader Status"
-				}},
-					{ SLiveLabel:{
-						refresh:3000,
-						action:"live Bootloader"
-					}},
-					{ SDescription:{
-						description:"Use this button to lock/unlock your bootloader without fastboot and data wipe."
-					}},
-					{ SButton:{
-						label:"Toggle Bootloader Status",
-						action:"devtools bootloader"
-					}},'
-			fi`
-			`if [ "\`sh $DEVICE HasTamperFlag\`" == "1" ] && [ -e "\`sh $DEVICE DirKernelIMG\`" ]; then
-				$BB echo '{ SDescription:{
-					description:"The bootloader sets a tamper flag if it has ever been unlocked/altered. The button below allows you to change this state."
-				}},
-					{ SButton:{
-						label:"Toggle Tamper Flag",
-						action:"devtools tamper"
-					}},'
-			fi`
 			{ SPane:{
 				title:"SELinux Status",
 				description:"Allows you to change your SELinux (Security-Enhanced Linux) Status from Enforcing (policy is enforced) to Permissive (prints warnings instead of enforcing).",

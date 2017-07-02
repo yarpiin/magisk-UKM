@@ -88,6 +88,13 @@ cat << CTAG
 				},
 				    description:"`getprop ro.build.date`"
 			    }},
+			{ STitleBar:{
+				title:"Donate"
+			}},
+				{ SButton:{
+					label:"If you like my work buy me a beer :)",
+					action:"url donate"
+				}}
 		]
 }
 CTAG
