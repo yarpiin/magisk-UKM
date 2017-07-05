@@ -40,26 +40,25 @@ cat << CTAG
 						}},'
 				fi
 			fi`
-			`if [ -d "/sys/module/state_notifier" ]; then
-				if [ -d "/sys/module/state_notifier" ]; then
-					$BB echo '{ SPane:{
-						title:"State Notifier:"
-						}},
-						{ SLiveLabel:{
-							refresh:0,
-							style:italic,
-							action:"live StateNotifier"
-						}},'
-				fi
-				if [ -f "/sys/module/state_notifier/parameters/enabled" ]; then
-					SNE=\`$BB cat /sys/module/state_notifier/parameters/enabled\`
-						$BB echo '{ SCheckBox:{
-							label:"Enabled",
-							description:"Allows you to activate notifier during screen on/off operations.",
-							default:'$SNE',
-							action:"generic /sys/module/state_notifier/parameters/enabled"
-						}},'
-					fi
+			`if [ -f "/sys/module/state_notifier/parameters/enabled" ]; then
+				SNE=\`bool /sys/module/state_notifier/parameters/enabled\`
+				$BB echo '{ SPane:{
+						title:"State Notifier"
+					}},
+					{ SSpacer:{
+						height: 1
+					}},
+					{ SLiveLabel:{
+						refresh:0,
+						style:italic,
+						action:"live StateNotifier"
+					}},
+					{ SCheckBox:{
+						label:"Enabled",
+						description:"Allows you to activate notifier during screen on/off operations.",
+						default:'$SNE',
+						action:"boolean /sys/module/state_notifier/parameters/enabled"
+					}},'
 					if [ -f "/sys/module/state_notifier/parameters/debug_mask" ]; then
 					DEBUGSN=\`$BB cat /sys/module/state_notifier/parameters/debug_mask\`
 						$BB echo '{ SCheckBox:{

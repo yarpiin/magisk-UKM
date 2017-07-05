@@ -196,8 +196,8 @@ case "$1" in
 		GPUMAXFREQ=/sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/max_freq;
 		GPUMAXFREQ1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/max_freq;
 		GPUMAXFREQ2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk;
-		GPUMAXFREQ3=/sys/class/kgsl/kgsl-3d0/devfreq/max_freq;
-		GPUMAXFREQ4=/sys/class/kgsl/kgsl-3d0/max_gpuclk;
+		GPUMAXFREQ3=/sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk;
+		GPUMAXFREQ4=/sys/devices/soc/b00000.qcom,kgsl-3d0/devfreq/b00000.qcom,kgsl-3d0/max_freq;
 		
 		if [ -f "$GPUMAXFREQ" ]; then
 			$BB echo "$GPUMAXFREQ";
@@ -219,8 +219,8 @@ case "$1" in
 		GPUMPW=/sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/min_freq;
 		GPUMPW1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/min_freq;
 		GPUMPW2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel;
-		GPUMPW3=/sys/class/kgsl/kgsl-3d0/devfreq/min_freq;
-		GPUMPW4=/sys/class/kgsl/kgsl-3d0/min_pwrlevel;
+		GPUMPW3=/sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/min_pwrlevel;	
+		GPUMPW4=/sys/devices/soc/b00000.qcom,kgsl-3d0/devfreq/b00000.qcom,kgsl-3d0/min_freq;	
 		
 		if [ -f "$GPUMPW" ]; then
 			$BB echo "$GPUMPW";
@@ -269,8 +269,8 @@ case "$1" in
 		GPUFREQ=/sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/max_freq;
 		GPUFREQ1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/max_freq;
 		GPUFREQ2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk;
-		GPUFREQ3=/sys/class/kgsl/kgsl-3d0/devfreq/available_frequencies;
-		GPUFREQ4=/sys/class/kgsl/kgsl-3d0/gpu_available_frequencies;
+		GPUFREQ3=/sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_available_frequencies;
+		GPUFREQ4=/sys/devices/soc/b00000.qcom,kgsl-3d0/devfreq/b00000.qcom,kgsl-3d0/available_frequencies;
 		
 		if [ -f "$GPUFREQ" ]; then
 			for GPUFREQ in `$BB cat /sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
@@ -291,13 +291,13 @@ case "$1" in
 			done;
 		fi;
 		if [ -f "$GPUFREQ3" ]; then
-			for GPUFREQ in `$BB cat /sys/class/kgsl/kgsl-3d0/devfreq/available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
+			for GPUFREQ in `$BB cat /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
 			LABEL=$((GPUFREQ / 1000000));
 				$BB echo "$GPUFREQ:\"${LABEL} MHz\", ";
 			done;
 		fi;
 		if [ -f "$GPUFREQ4" ]; then
-			for GPUFREQ in `$BB cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
+			for GPUFREQ in `$BB cat /sys/devices/soc/b00000.qcom,kgsl-3d0/devfreq/b00000.qcom,kgsl-3d0/available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
 			LABEL=$((GPUFREQ / 1000000));
 				$BB echo "$GPUFREQ:\"${LABEL} MHz\", ";
 			done;
@@ -311,8 +311,8 @@ case "$1" in
 		GPUPW=/sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/min_freq;
 		GPUPW1=/sys/devices/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/min_freq;
 		GPUPW2=/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/min_pwrlevel;
-		GPUPW3=/sys/class/kgsl/kgsl-3d0/devfreq/available_frequencies;
-		GPUPW4=/sys/class/kgsl/kgsl-3d0/num_pwrlevels;
+		GPUPW3=/sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/num_pwrlevels;
+		GPUPW4=/sys/devices/soc/b00000.qcom,kgsl-3d0/devfreq/b00000.qcom,kgsl-3d0/min_freq;
 		
 		if [ -f "$GPUPW" ]; then
 			for GPUFREQ in `$BB cat /sys/devices/soc.0/fdb00000.qcom,kgsl-3d0/devfreq/fdb00000.qcom,kgsl-3d0/available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
@@ -337,21 +337,20 @@ case "$1" in
 			done;
 		fi;
 		if [ -f "$GPUPW3" ]; then
-			for GPUFREQ in `$BB cat /sys/devices/soc/b00000.qcom,kgsl-3d0/devfreq/b00000.qcom,kgsl-3d0/available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
-			LABEL=$((GPUFREQ / 1000000));
-				$BB echo "$GPUFREQ:\"${LABEL} MHz\", ";
-			done;
-		fi;
-		if [ -f "$GPUPW4" ]; then
-			NUM_PWRLVL=`$BB cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/num_pwrlevels`;
-			NUM_PWRLVL=`$BB cat /sys/class/kgsl/kgsl-3d0/num_pwrlevels`;
+			NUM_PWRLVL=`$BB cat /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/num_pwrlevels`;
 			PWR_LEVEL=-1;
-			for GPUFREQ in `$BB cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies`; do
+			for GPUFREQ in `$BB cat /sys/devices/fdb00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_available_frequencies`; do
 			PWR_LEVEL=$((PWR_LEVEL + 1));
 			MIN_PWRLVL=$((NUM_PWRLVL - PWR_LEVEL));
 			LABEL=$((GPUFREQ / 1000000));
 				$BB echo "$MIN_PWRLVL:\"${LABEL} MHz\", ";
 		done;
+		fi;
+		if [ -f "$GPUPW4" ]; then
+			for GPUFREQ in `$BB cat /sys/devices/soc/b00000.qcom,kgsl-3d0/devfreq/b00000.qcom,kgsl-3d0/available_frequencies | $BB tr ' ' '\n' | $BB sort -u` ; do
+			LABEL=$((GPUFREQ / 1000000));
+				$BB echo "$GPUFREQ:\"${LABEL} MHz\", ";
+			done;
 		fi;
 	;;
 	HasBootloader)

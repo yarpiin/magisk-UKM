@@ -1,6 +1,17 @@
 /
 P/oject name: UKM-unified
 
+02/07/2017
+
+  * Tools: Remove bootloader toggle (Slawek) [e8e2480]
+  * Misc: change way that State Notifier is detected (Slawek) [fcc1b72]
+  * gpu: remove gaming boost buttons (Slawek) [d32d4ca]
+  * Boost: add fingerprint boost driver by Frap129 (Slawek) [3a43f44]
+  * Info: add donate button (Slawek) [dc8a8dd]
+  * UKM: tidy up (Slawek) [cb55056]
+  * Actions: add url action (Slawek) [54c0a08]
+  * Synapse: material like theme (Slawek) [261b40f
+
 08/06/17
 
   * Info: update links (Slawek) [ab65148]

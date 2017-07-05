@@ -310,7 +310,7 @@ mount -o remount,rw /system;
 mkdir /system/app/Synapse;
 set_perm_recursive 0 0 0755 0755 /system/app/Synapse;
 cp -f $INSTALLER/common/Synapse.apk /system/app/Synapse/Synapse.apk;
-set_perm_recursive 0 0 0644 0755 /system/app;
+set_perm_recursive 0 0 0755 0644 /system/app;
 
 # Handle replace folders
 for TARGET in $REPLACE; do
