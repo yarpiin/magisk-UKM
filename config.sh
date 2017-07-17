@@ -1,22 +1,20 @@
 ##########################################################################################
 #
-# Magisk
+# Magisk Module Template Config Script
 # by topjohnwu
-#
-# This is a template zip for developers
-#
+# 
 ##########################################################################################
 ##########################################################################################
-#
+# 
 # Instructions:
-#
+# 
 # 1. Place your files into system folder (delete the placeholder file)
 # 2. Fill in your module's info into module.prop
 # 3. Configure the settings in this file (common/config.sh)
 # 4. For advanced features, add shell commands into the script files under common:
 #    post-fs-data.sh, service.sh
 # 5. For changing props, add your additional/modified props into common/system.prop
-#
+# 
 ##########################################################################################
 
 ##########################################################################################
@@ -101,12 +99,6 @@ REPLACE="
 set_permissions() {
   # Default permissions, don't remove them
   set_perm_recursive  $MODPATH  0  0  0755  0644
-
-  set_perm_recursive  $MODPATH/system/xbin  0  2000  0755  0755
-
-  set_perm_recursive  /data/UKM  0  0  0755  0755
-  
-  set_perm_recursive  system/app/Synapse  0  0  0644  0755
 
   # Only some special files require specific permissions
   # The default permissions should be good enough for most cases
