@@ -210,6 +210,15 @@ if [ $curSizeM -gt $newSizeM ]; then
   ui_print "- Shrinking $IMG to ${newSizeM}M"
   $MAGISKBIN/magisk --resizeimg $IMG $newSizeM
 fi
+ 
+# Restart UKM after an "update". No reboot is needed. 
+UCI_XBIN=/system/xbin/uci; 
+if $BOOTMODE && [ -f "$UCI_XBIN" ]; then 
+  ui_print "- Restarting uci" 
+  $UCI_XBIN reset; 
+  sleep 1; 
+  $UCI_XBIN; 
+fi 
 
 $BOOTMODE || recovery_cleanup
 
