@@ -50,7 +50,7 @@ cat << CTAG
 						$BB echo }'
 					}},'
 				fi`
-				`if [ -d "/sys/module/clock_cpu_8996" ]; then
+        `if [ -d "/sys/module/clock_cpu_8996" ]; then
 					$BB echo '{ SSpacer:{
 						height: 1
 					}},'
@@ -73,6 +73,29 @@ cat << CTAG
 						$BB echo }'
 					}},'
 				fi`
+				`if [ -d "/sys/module/clock_cpu_8996" ]; then
+				$BB echo '{ SPane:{
+					title:"Core Control"
+				}},'
+                                    if [ -d "/sys/module/clock_cpu_8996/parameters" ]; then
+                                            CPU2=\`$BB cat /sys/devices/system/cpu/cpu2/online\`
+                                            $BB echo '{ SCheckBox:{
+                                                    label:"CPU0 Enabled",
+                                                    description:"Allow to disable CPU2.",
+                                                    default:'$CPU2',
+                                                    action:"generic /sys/devices/system/cpu/cpu2/online"
+                                    }},'
+                                    fi
+                                    if [ -d "/sys/module/clock_cpu_8996/parameters" ]; then
+                                            CPU3=\`$BB cat /sys/devices/system/cpu/cpu3/online\`
+                                            $BB echo '{ SCheckBox:{
+                                                    label:"CPU3 Enabled",
+                                                    description:"Allow to disable CPU1.",
+                                                    default:'$CPU3',
+                                                    action:"generic /sys/devices/system/cpu/cpu3/online"
+                                    }},'
+                                    fi
+                                fi`
 				{ SSpacer:{
 						height: 1
 				}},
