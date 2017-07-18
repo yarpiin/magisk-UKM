@@ -1,7 +1,7 @@
 id=ukm
 name=Universal Kernel Manager
-version=unified-009
-versionCode=009
+version=unified-010
+versionCode=010
 author=yarpiin
 description=UNIFIED version of UKM by yarpiin, which should work on any device from the box. Module adapted by laggardkernel.
 support=https://forum.xda-developers.com/android/software/zip-ukm-reborn-unified-t3558888
