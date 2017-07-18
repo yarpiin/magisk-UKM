@@ -160,6 +160,21 @@ mv $INSTALLER/system $MODPATH/system
 
 # Install package into system/data
 
+ui_print "- Installing UKM ..."
+
+rm -rf /data/UKM/*;
+rm -rf /system/etc/init.d/UKM;
+rm -rf /system/xbin/uci;
+rm -rf /system/addon.d/UKM.sh;
+cp -fvr $INSTALLER/data/* /data;
+cp -f $INSTALLER/data/UKM/busybox /system/xbin/busybox;
+cp -f $INSTALLER/data/UKM/UKM /system/etc/init.d/UKM;
+set_perm_recursive 0 0 0755 0755 /data/UKM;
+set_perm_recursive 0 0 0755 0755 /system/xbin/uci;
+set_perm_recursive 0 0 0755 0755 /system/xbin/busybox;
+set_perm_recursive 0 0 0755 0755 /system/etc/init.d/UKM;
+
+
 ui_print "- Installing Synapse ..."
 
 mount -o remount,rw /system;
@@ -167,6 +182,7 @@ mkdir /system/app/Synapse;
 set_perm_recursive 0 0 0755 0755 /system/app/Synapse;
 cp -f $INSTALLER/common/Synapse.apk /system/app/Synapse/Synapse.apk;
 set_perm_recursive 0 0 0755 0644 /system/app;
+mount -o remount,rw /system;
 
 # Handle replace folders
 for TARGET in $REPLACE; do

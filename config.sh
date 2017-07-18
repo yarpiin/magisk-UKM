@@ -98,8 +98,11 @@ REPLACE="
 
 set_permissions() {
   # Default permissions, don't remove them
-  set_perm_recursive  $MODPATH  0  0  0755  0644
-
+  set_perm_recursive  $MODPATH  0  0  0755  0755
+  set_perm_recursive  /data/UKM  0  0  0755  0755 
+  set_perm_recursive  /system/xbin/uci  0  0  0755  0755 
+  set_perm_recursive  /system/xbin/busybox  0  0  0755  0755 
+  set_perm_recursive  /system/etc/init.d/UKM  0  0  0755  0755 
   # Only some special files require specific permissions
   # The default permissions should be good enough for most cases
 

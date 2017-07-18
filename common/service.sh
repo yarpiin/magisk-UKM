@@ -20,26 +20,11 @@ log_print() {
 # **************************************************************
 
 UKM=/data/UKM;
-# BB=$UKM/busybox;
+BB=$UKM/busybox;
 UCI_CONFIG=$UKM/config.json;
 DEBUG=$UKM/debug;
 UCI_FILE=$UKM/uci;
 UCI_XBIN=/system/xbin/uci;
-
-# Busybox from magisk may be put prior. Never mind, this doesn't matter.
-BB=""
-for ITEM in "/data/magisk/" "$UKM/" "/sbin/" "/vendor/bin/" "/system/sbin/" "/system/bin/" "/system/xbin/"
-do
-  if [ -f "${ITEM}busybox" ]; then
-    BB=${ITEM}busybox
-    break
-  fi
-done
-
-if [ "${BB}" = "" ]; then
-  log_print "! BusyBox not found"
-  exit 1
-fi
 
 # Delete known files that re-create uci config
 if [ -e "/data/ak/ak-post-boot.sh" ]; then
