@@ -243,11 +243,11 @@ cat << CTAG
 			`if [ -f "/sys/kernel/fast_charge/force_fast_charge" ] && [ ! -f "/sys/kernel/fast_charge/fast_charge_level" ]; then
 			FC=\`$BB cat /sys/kernel/fast_charge/force_fast_charge\`
 				$BB echo '{ SPane:{
-				title:"USB Fast Charge"
+				title:"Fast Charge"
 				}},
 					{ SCheckBox:{
 						label:"Enable",
-						description:"If enabled, device will charge faster when connected through USB. NOTE: Enabling this will disable access to phone storage via USB.",
+						description:"If enabled, device will charge faster. Depends on kernel For USB use 900mA as MAX, For wallcharger use up to 2500mA. NOTE: Enabling this will disable access to phone storage via USB.",
 						default:'$FC',
 						action:"generic /sys/kernel/fast_charge/force_fast_charge"
 					}},'

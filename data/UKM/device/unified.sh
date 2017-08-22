@@ -755,15 +755,13 @@ case "$1" in
 		$BB echo $WL;
 	;;
 	MaxCPU)
-		MAXCPU=/sys/devices/system/cpu/cpu7/cpufreq/scaling_cur_freq;
+		MAXCPU=/sys/devices/system/cpu/cpu7;
 		MAXCPU1=/sys/module/clock_cpu_8996;
 		MAXCPU2=/sys/module/clock_cpu_8956;
 		
 		
-		if [ -f "$MAXCPU" ]; then
+		if [ -d "$MAXCPU" ]; then
 			$BB echo "8"
-		else
-			$BB echo "4"
 		fi;
 		
 		if [ -d "$MAXCPU1" ]; then

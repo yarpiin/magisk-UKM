@@ -80,7 +80,7 @@ cat << CTAG
                                     if [ -d "/sys/module/clock_cpu_8996/parameters" ]; then
                                             CPU2=\`$BB cat /sys/devices/system/cpu/cpu2/online\`
                                             $BB echo '{ SCheckBox:{
-                                                    label:"CPU0 Enabled",
+                                                    label:"CPU2 Enabled",
                                                     description:"Allow to disable CPU2.",
                                                     default:'$CPU2',
                                                     action:"generic /sys/devices/system/cpu/cpu2/online"
@@ -90,7 +90,7 @@ cat << CTAG
                                             CPU3=\`$BB cat /sys/devices/system/cpu/cpu3/online\`
                                             $BB echo '{ SCheckBox:{
                                                     label:"CPU3 Enabled",
-                                                    description:"Allow to disable CPU1.",
+                                                    description:"Allow to disable CPU3.",
                                                     default:'$CPU3',
                                                     action:"generic /sys/devices/system/cpu/cpu3/online"
                                     }},'
